@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global reset additions */
+html,
+body {
+  height: 100%;
+}
+body {
+  @apply antialiased text-gray-800 bg-surface;
+  /* Soft, mild gradient background (subtle and non-distracting) */
+  background-image:
+    radial-gradient(
+      1200px 1200px at 8% 0%,
+      rgba(45, 212, 191, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 1000px at 95% 10%,
+      rgba(15, 118, 110, 0.06),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 55%, #ffffff 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Standard links within rich text only */
+.prose a {
+  @apply text-primary hover:text-primary-dark hover:underline underline-offset-4 decoration-primary/40 motion-safe:transition-colors;
+}
+
+/* Enhance base UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Motion-safe helper for reduced motion users is already considered via motion-safe classes */

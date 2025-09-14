@@ -1,0 +1,414 @@
+﻿Technical Requirements Document (TRD) — Home Page
+Project: US Market Partner
+Tech: Next.js + TypeScript
+Here’s the thing: you’ve already got the content and a clear structure. This TRD turns that into concrete tech work — components, data flow, infra, testing, performance targets, and deliverables — so a dev can start building without guessing. I’ll be pragmatic, opinionated where it matters, and leave room for your preferred styling approach.
+________________
+
+
+1. Goals (what the home page must do)
+* Communicate value: show who US Market Partner is and what they offer.
+
+* Surface country-specific support and services clearly.
+
+* Host an autoplay (muted) banner video on the right with accessible controls.
+
+* Be SEO-friendly, fast, and responsive.
+
+* Be easy to extend (add countries, services, or sector pages).
+
+* Use Next.js with TypeScript.
+
+________________
+
+
+2. Tech stack & infra
+   * Framework: Next.js 14+ (App Router recommended) with TypeScript.
+
+   * Styling: Tailwind CSS (recommended) or CSS Modules / Styled Components if you prefer a bespoke library. I’ll include notes for both.
+
+   * Data: Content stored as MDX / JSON within the repo for MVP; option to plug a headless CMS (Sanity, Contentful, Strapi) later.
+
+   * Video: Hosted on CDN (S3 + CloudFront / Vercel Large Media) or embedded (YouTube/Vimeo). Prefer self-hosted MP4+HLS on CDN for control.
+
+   * Images: next/image for optimisation.
+
+   * CI/CD: GitHub Actions → Deploy to Vercel (recommended) or Netlify.
+
+   * Testing: Vitest + Testing Library (unit), Playwright (E2E).
+
+   * Monitoring/Analytics: Sentry (errors), GA4 / GTM (analytics).
+
+   * Security: HTTPS, CSP headers, input sanitization.
+
+________________
+
+
+3. Architecture & routing
+Use Next.js App Router.
+      * / — Home page (this deliverable).
+
+      * /country/[country-slug] — Country landing page (stubs for future).
+
+      * /services/[service-slug] — Service landing pages (stubs).
+
+      * /api/contact — Serverless API route to accept form/contact leads (optional; forwards to backend or email service).
+
+Rendering strategy:
+         * getStaticProps / static generation (App Router: generateStaticParams + server components) for content; use ISR (revalidate) if content may update frequently.
+
+         * For video and dynamic content fetch from CDN/CMS at build or runtime depending on frequency.
+
+________________
+
+
+4. Data model (content contract)
+Store content as typed JSON or MDX frontmatter.
+Example TypeScript interfaces:
+// types/content.ts
+export interface Country {
+  slug: string;
+  name: string;
+  description: string;
+  sectors: { slug: string; name: string }[];
+}
+
+
+export interface Service {
+  slug: string;
+  title: string;
+  shortDescription: string;
+  icon?: string; // SVG path or icon name
+}
+
+
+export interface HomeContent {
+  hero: {
+    title: string;
+    subtitle: string;
+    ctaText: string;
+    videoSrc: string; // CDN URL or embed id
+  };
+  intro: string;
+  countries: Country[];
+  services: Service[];
+  ctaSection: { title: string; buttonText: string };
+}
+Content store: /data/home.json or /content/home.mdx (preferred for rich text).
+________________
+
+
+5. Component breakdown (file structure + responsibilities)
+Suggested folder: app/ (App Router). Example structure:
+app/
+  page.tsx                     // home page server component
+  components/
+    Header.tsx
+    Footer.tsx
+    Hero.tsx
+    VideoPlayer.tsx
+    CountryCards.tsx
+    ServiceGrid.tsx
+    CTASection.tsx
+    Icon.tsx
+  lib/
+    content.ts                  // typed loaders for static content
+  styles/
+    globals.css or tailwind.css
+Component specs
+Header
+            * Props: none (reads logo + nav items from config).
+
+            * Behaviour:
+
+               * Sticky at top on scroll.
+
+               * Desktop: horizontal nav + CTA button.
+
+               * Mobile: hamburger menu -> slideout.
+
+                  * Accessibility: keyboard nav, aria-expanded, focus trap in mobile menu.
+
+Hero (left text, right video)
+                     * Props: title, subtitle, cta, videoSrc.
+
+                     * Layout:
+
+                        * Desktop: 2-column (text left, video right).
+
+                        * Tablet/mobile: stack; video below text or collapsible.
+
+                           * Video behaviour:
+
+                              * Autoplay muted, loop optional, but provide play/pause and unmute.
+
+                              * Use <video> element (self-hosted) or embed if external.
+
+                              * Fallback poster image.
+
+                                 * Accessibility: captions (if available), label controls, aria-describedby for description.
+
+VideoPlayer
+                                    * Accepts src, poster.
+
+                                    * Provides custom controls (play/pause, volume, fullscreen).
+
+                                    * Emits events for analytics (play, pause).
+
+                                    * Graceful fallbacks for mobile (some mobile browsers block autoplay; show poster & play button).
+
+CountryCards
+                                       * Display each country card with short copy + sector links.
+
+                                       * Card expands on hover or click to show sectors.
+
+                                       * Sector links internal link stubs to /country/[country]/[sector].
+
+ServiceGrid
+                                          * 7 service tiles with icon + short description.
+
+                                          * Tiles link to service pages (stubs).
+
+CTASection
+                                             * Bold text + primary CTA -> /contact or opens modal contact form.
+
+                                             * Secondary CTA -> book consult (Calendly link optional).
+
+Footer
+                                                * Logo, quick links, social icons, legal text.
+
+________________
+
+
+6. Accessibility & SEO requirements
+                                                   * Semantic HTML: use <main>, <header>, <nav>, <footer>, heading hierarchy (H1 on hero title).
+
+                                                   * ARIA: role="navigation", aria-label where needed.
+
+                                                   * Keyboard accessible: all interactive elements must be reachable and operable.
+
+                                                   * Contrast ratio >= 4.5:1 for body text.
+
+                                                   * Images: alt attributes.
+
+                                                   * Video: captions/subtitles or transcript link.
+
+                                                   * Meta tags:
+
+                                                      * Title, description, canonical.
+
+                                                      * Open Graph: og:title, og:description, og:image.
+
+                                                      * Twitter Card.
+
+                                                         * Sitemap & robots.txt generated (Next.js or during build).
+
+________________
+
+
+7. Performance & best practices
+                                                            * Lighthouse targets: Performance >= 90, Accessibility >= 90, SEO >= 90.
+
+                                                            * Use next/image for images.
+
+                                                            * Serve video via optimized format (mp4 / H264) or HLS; provide small poster for initial paint.
+
+                                                            * Lazy-load below-the-fold content; priority for hero image only if used.
+
+                                                            * Minimize JS: keep hero as server component where possible; only hydrate interactive bits.
+
+                                                            * Critical CSS via Tailwind JIT or CSS Modules extracted by Next.
+
+Performance budgets:
+                                                               * First Contentful Paint < 1.2s (on 3G simulated mobile).
+
+                                                               * Largest Contentful Paint < 2.5s.
+
+                                                               * Total JS < 150 KB for initial load (aim to keep small).
+
+________________
+
+
+8. Security & privacy
+                                                                  * HTTPS enforced (Vercel provides).
+
+                                                                  * CSP header: restrict scripts and media sources to CDN/analytics.
+
+                                                                  * Sanitize any user-submitted content (contact form).
+
+                                                                  * Rate-limit API route api/contact.
+
+                                                                  * GDPR/Privacy: if using GA4, provide cookie consent modal (or server-side opt-out).
+
+________________
+
+
+9. Integrations & third-party services
+                                                                     * CDN for media (S3 + CloudFront or Vercel storage).
+
+                                                                     * Analytics: GA4 via GTM (or simple GA4 snippet).
+
+                                                                     * Error tracking: Sentry.
+
+                                                                     * Optional: Calendly for “Book a call” CTA.
+
+                                                                     * Optional CMS: Sanity/Contentful for editorial content.
+
+________________
+
+
+10. Testing strategy
+                                                                        * Unit tests: Vitest + React Testing Library. Cover components: Header, Hero, VideoPlayer controls, CountryCards.
+
+                                                                        * Integration: test routing and data loading using mocked content.
+
+                                                                        * E2E: Playwright visiting /, testing responsive layouts, hero video play, CTA navigation, accessibility checks (axe-core).
+
+                                                                        * CI: run lint, typecheck, unit tests, build check.
+
+________________
+
+
+11. CI/CD (GitHub Actions -> Vercel)
+Minimal pipeline:
+                                                                           * On PR / push to main:
+
+                                                                              1. Install, run pnpm ci or npm ci.
+
+                                                                              2. Run pnpm lint / npm run lint.
+
+                                                                              3. Run pnpm typecheck.
+
+                                                                              4. Run pnpm test.
+
+                                                                              5. Build: next build.
+
+                                                                              6. Push to Vercel via Vercel/Git integration or deploy via vercel CLI.
+
+Secrets:
+                                                                                 * VERCEL_TOKEN, SENTRY_DSN, GA_MEASUREMENT_ID, CMS keys.
+
+________________
+
+
+12. Deliverables (concrete)
+                                                                                    1. Next.js project scaffold with TypeScript.
+
+                                                                                    2. Fully implemented Home page (app/page.tsx) using server components + client components where needed.
+
+                                                                                    3. Components: Header, Hero(with VideoPlayer), CountryCards, ServiceGrid, CTASection, Footer.
+
+                                                                                    4. Static content in /data/home.json (typed).
+
+                                                                                    5. Responsive and accessible styles (Tailwind config or CSS Modules).
+
+                                                                                    6. Unit & E2E test suite skeleton and sample tests for critical flows.
+
+                                                                                    7. GitHub Actions workflow for CI and Vercel deployment instructions.
+
+                                                                                    8. README with run/build/deploy/test instructions.
+
+                                                                                    9. Optional: contact API endpoint implementation with spam protection (recaptcha) stubbed.
+
+________________
+
+
+13. Implementation notes & recommendations
+                                                                                       * Video hosting: If you need captions and analytics, host HLS on CDN. For a fast MVP, upload an MP4 to Vercel large media or S3 + CloudFront and use <video> with preload="metadata" + muted for autoplay.
+
+                                                                                       * Styling: I recommend Tailwind for rapid iteration. If you must avoid Tailwind (you mentioned building your own CSS library elsewhere), use CSS Modules with a utility-first naming convention.
+
+                                                                                       * Content authoring: Start with MDX for the country entries — allows inline rich content and long descriptions. Later swap to a headless CMS with minimal migration.
+
+                                                                                       * Analytics: track CTA clicks, video plays, and country card expands. Send events to GA4, and optionally to a server log for lead analytics.
+
+                                                                                       * Extensibility: Build CountryCards and ServiceGrid to read from HomeContent JSON; no hard-coded markup so adding a country/service is purely data-driven.
+
+________________
+
+
+14. Example code snippets
+app/page.tsx (simplified):
+import React from 'react';
+import { getHomeContent } from '@/lib/content';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import CountryCards from '@/components/CountryCards';
+import ServiceGrid from '@/components/ServiceGrid';
+import CTASection from '@/components/CTASection';
+import Footer from '@/components/Footer';
+
+
+export default async function Page() {
+  const content = await getHomeContent(); // server-side load
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero {...content.hero} />
+        <section className="container mx-auto py-12">
+          <div dangerouslySetInnerHTML={{ __html: content.intro }} />
+        </section>
+        <CountryCards countries={content.countries} />
+        <ServiceGrid services={content.services} />
+        <CTASection {...content.ctaSection} />
+      </main>
+      <Footer />
+    </>
+  );
+}
+components/VideoPlayer.tsx (client component):
+'use client';
+import React, { useRef, useState } from 'react';
+
+
+export default function VideoPlayer({ src, poster }: { src: string; poster?: string }) {
+  const ref = useRef<HTMLVideoElement | null>(null);
+  const [playing, setPlaying] = useState(false);
+
+
+  const toggle = () => {
+    if (!ref.current) return;
+    if (ref.current.paused) {
+      ref.current.play();
+      setPlaying(true);
+    } else {
+      ref.current.pause();
+      setPlaying(false);
+    }
+  };
+
+
+  return (
+    <div>
+      <video ref={ref} src={src} poster={poster} muted playsInline loop preload="metadata" aria-label="Intro video about US Market Partner" />
+      <button onClick={toggle} aria-pressed={playing}>{playing ? 'Pause' : 'Play'}</button>
+    </div>
+  );
+}
+________________
+
+
+15. Acceptance criteria
+                                                                                          * Home page renders server-side with content from /data/home.json.
+
+                                                                                          * Hero has title (H1), subtitle, CTA, and a playable video on the right on desktop.
+
+                                                                                          * Country cards show provided countries and sector links.
+
+                                                                                          * Services grid contains the seven service tiles.
+
+                                                                                          * All pages pass basic accessibility checks (no critical violations).
+
+                                                                                          * CI passes lint, types, tests, and build; deploys to Vercel.
+
+________________
+
+
+16. Risks & mitigation
+                                                                                             * Video autoplay blocked on mobile → fallback to poster + large play button (mitigation: handle blocked autoplay gracefully).
+
+                                                                                             * Large media may slow LCP → host on CDN, lazy-load, use smaller poster.
+
+                                                                                             * Content changes frequently → use ISR or CMS to update without redeploying.
+
+                                                                                             * Third-party scripts (analytics) can bloat → lazy-load after interaction.

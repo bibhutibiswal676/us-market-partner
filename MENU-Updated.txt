@@ -1,0 +1,272 @@
+﻿Brief
+🏠 Main Menu (Header Navigation)
+1. Home
+ - Quick link to the homepage
+2. Services
+ - Dropdown with all services:
+● Insurance Services
+
+● Specialized Industry Services
+
+● Marketing & Sales Services
+
+● Operational & Infrastructure Services
+
+● Banking & Financial Services
+
+● Tax & Accounting Services
+
+● Legal & Compliance Services
+
+● HR & Talent Services
+
+● IT & Tech Support
+
+3. Sectors
+ - Dropdown with sectors:
+● Manufacturing
+
+● E-commerce
+
+● Pharma & Biotech
+
+● Automotive & EV
+
+● Semiconductors
+
+● AI & Cloud Infrastructure
+
+● Finance & Banking
+
+● Logistics & Supply Chain
+
+4. Countries / Regions
+ - Dropdown or mega menu linking to country-specific pages:
+● India
+
+● Japan
+
+● Canada
+
+● Germany
+
+● UK & Europe
+
+● UAE
+
+● Taiwan
+
+● South Korea
+
+● Mexico
+
+● Brazil
+
+● Israel
+
+● Singapore
+
+5. Blog / Insights
+ - Regularly updated articles about US business regulations, market entry strategies, tax updates, FDI trends.
+6. About Us
+ - Company mission, team, global presence, credibility.
+7. Contact / Book Consultation (CTA)
+ - Make this a highlighted button in the header for maximum conversions.
+🎯 Home Page Sections (with Call-to-Actions)
+1. Hero Section (Above the Fold)
+
+○ Big headline: "Expand Your Business into the US with Confidence"
+
+○ Subheading: "Helping global SMEs set up, scale, and succeed in the United States for 5+ years."
+
+○ Primary CTA Button: "Book Free Consultation"
+
+○ Secondary CTA: "Explore Services"
+
+2. Our Services (Card Layout)
+
+○ Showcase 8-9 key services with icons and short descriptions
+
+○ CTA: "See All Services"
+
+3. Global Sectors We Serve
+
+○ Cards or grid view of sectors (Manufacturing, Pharma, IT, etc.)
+
+○ CTA: "Explore Your Sector"
+
+4. Countries & Regions
+
+○ Map visualization + clickable country cards
+
+○ CTA: "See Country Guide"
+
+5. Why Choose Us (Trust Builders)
+
+○ ✅ 5+ Years Experience
+
+○ ✅ Global Team & Local Experts
+
+○ ✅ Compliance-First Approach
+
+○ ✅ Proven Track Record
+
+○ CTA: "Learn More About Us"
+
+6. Client Testimonials & Case Studies
+
+○ Social proof section
+
+○ CTA: "See How We Helped Others"
+
+7. Latest Blog / Insights
+
+○ Display 3 latest posts with thumbnail & short summary
+
+○ CTA: "View All Insights"
+
+8. Strong Call-to-Action (End of Page)
+
+○ Banner: "Ready to Enter the US Market? Let's Get Started Today."
+
+○ Big button: "Book a Consultation Now"
+
+📌 Footer Section
+Left Column
+● Logo & short tagline:
+ "Your trusted partner for US market expansion."
+
+Quick Links
+● Home
+
+● Services
+
+● Sectors
+
+● Countries
+
+● Blog / Insights
+
+● Contact
+
+Policies
+● Terms & Conditions (/terms-and-conditions/)
+
+● Privacy Policy (/privacy-policy/)
+
+● Refund Policy (if applicable)
+
+● Cookie Policy
+
+● Disclaimer (for legal protection)
+
+Social Media Links
+● LinkedIn (most important for B2B)
+
+● Twitter/X
+
+● YouTube (if posting webinars)
+
+● Facebook / Instagram (optional, if targeting startups & SMEs)
+
+Bottom Bar
+● Copyright (c) 2025 USMarketPartner.com | All Rights Reserved
+
+● "Powered by [Your Company Name]" (optional)
+
+____________________________________________
+
+MENU
+Home
+https://www.usmarketpartner.com/
+
+About Us
+https://www.usmarketpartner.com/about-us
+
+Services
+https://www.usmarketpartner.com/services
+
+Sub Menu
+https://www.usmarketpartner.com/services/insurance/
+https://www.usmarketpartner.com/services/specialized-industry/
+https://www.usmarketpartner.com/services/marketing-sales/
+https://www.usmarketpartner.com/services/operations-infrastructure/
+https://www.usmarketpartner.com/services/banking-financial/
+https://www.usmarketpartner.com/services/tax-accounting/
+https://www.usmarketpartner.com/services/legal-compliance/
+
+Industries
+Sub Menu
+https://www.usmarketpartner.com/ecommerce/
+https://www.usmarketpartner.com/food-beverage/
+https://www.usmarketpartner.com/it-saas/
+https://www.usmarketpartner.com/manufacturing/
+https://www.usmarketpartner.com/pharma-healthcare/
+https://www.usmarketpartner.com/professional-services/
+https://www.usmarketpartner.com/logistics-supply-chain/
+https://www.usmarketpartner.com/agriculture/
+
+Countries
+Sub Menu
+https://www.usmarketpartner.com/india/
+https://www.usmarketpartner.com/mexico/
+https://www.usmarketpartner.com/united-kingdom/
+https://www.usmarketpartner.com/germany/
+https://www.usmarketpartner.com/brazil/
+https://www.usmarketpartner.com/vietnam/
+https://www.usmarketpartner.com/israel/
+https://www.usmarketpartner.com/china/
+https://www.usmarketpartner.com/turkey/
+https://www.usmarketpartner.com/taiwan/
+https://www.usmarketpartner.com/south-korea/
+https://www.usmarketpartner.com/singapore/
+
+Contact Us
+https://www.usmarketpartner.com/contact/
+
+Blog
+https://www.usmarketpartner.com/blog/
+
+
+Footer
+Polices
+https://www.usmarketpartner.com/terms-and-conditions/
+https://www.usmarketpartner.com/privacy-policy/
+https://www.usmarketpartner.com/cookie-policy/
+https://www.usmarketpartner.com/disclaimer/
+
+
+
+Later
+https://www.usmarketpartner.com/services/insurance/
+https://www.usmarketpartner.com/services/specialized-industry/
+https://www.usmarketpartner.com/services/marketing-sales/
+https://www.usmarketpartner.com/services/operations-infrastructure/
+https://www.usmarketpartner.com/services/banking-financial/
+https://www.usmarketpartner.com/services/tax-accounting/
+https://www.usmarketpartner.com/services/legal-compliance/
+
+Country & Industry wise
+https://www.usmarketpartner.com/india/ecommerce/
+https://www.usmarketpartner.com/india/food-beverage/
+https://www.usmarketpartner.com/india/it-saas/
+https://www.usmarketpartner.com/india/manufacturing/
+https://www.usmarketpartner.com/mexico/ecommerce/
+https://www.usmarketpartner.com/mexico/food-beverage/
+https://www.usmarketpartner.com/mexico/manufacturing/
+https://www.usmarketpartner.com/united-kingdom/fintech/
+https://www.usmarketpartner.com/united-kingdom/saas-it/
+https://www.usmarketpartner.com/united-kingdom/consumer-goods/
+https://www.usmarketpartner.com/germany/industrial-manufacturing/
+https://www.usmarketpartner.com/germany/engineering-machinery/
+https://www.usmarketpartner.com/germany/it-services/
+https://www.usmarketpartner.com/brazil/food-beverage/
+https://www.usmarketpartner.com/brazil/agribusiness/
+https://www.usmarketpartner.com/brazil/ecommerce/
+https://www.usmarketpartner.com/israel/tech-saas/
+https://www.usmarketpartner.com/israel/cybersecurity/
+https://www.usmarketpartner.com/israel/medtech/
+https://www.usmarketpartner.com/singapore/fintech/
+https://www.usmarketpartner.com/singapore/medtech/
+https://www.usmarketpartner.com/singapore/logistics-supply-chain/
+

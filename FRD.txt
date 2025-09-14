@@ -1,0 +1,134 @@
+﻿Functional Requirements Document (FRD)
+Project Name: US Market Partner – Website
+Page: Home Page
+________________
+
+
+1. Objective
+The objective of this homepage is to present US Market Partner as a trusted consulting agency that helps SMEs expand into the US market. The page should be professional, visually appealing, and easy to navigate while highlighting services, country-specific expertise, and a clear call to action.
+________________
+
+
+2. Scope
+This FRD covers only the homepage of the website. Future pages (detailed services, country-specific landing pages, blog, contact, etc.) will be handled in later phases.
+________________
+
+
+3. Layout Structure
+3.1 Menu (Header Navigation)
+* Logo (top-left) – US Market Partner branding.
+
+* Navigation items (top-right):
+
+   * Home
+
+   * About Us
+
+   * Services
+
+   * Country Support
+
+   * Contact
+
+      * CTA Button – “Get Started” or “Expand Now” (highlighted).
+
+      * Sticky menu: stays visible when scrolling.
+
+3.2 Banner (Hero Section)
+         * Left Side Content:
+
+            * Title: Expand Your Business into the US Market with Confidence
+
+            * Subtitle: Partnering with global SMEs for 5+ years to unlock opportunities in the United States across industries, products, and services.
+
+            * CTA Button: “Talk to an Expert”
+
+               * Right Side: Video (autoplay muted, with play/pause option).
+
+3.3 Introduction Section
+                  * Short company overview: At US Market Partner, we specialize in helping SMEs…
+
+                  * Highlights of industries/sectors covered.
+
+3.4 Country-Wise Expansion Support
+                     * Countries with tabs or cards: India, Mexico, UK, Germany, Brazil, Israel, Singapore.
+
+                     * For each country:
+
+                        * Short description of SME strengths.
+
+                        * Sector links (clickable, leading to future sector landing pages).
+
+3.5 Services Section
+                           * Grid or icons layout with service categories:
+
+                              * Insurance Services
+
+                              * Specialized Industry Services
+
+                              * Marketing & Sales Services
+
+                              * Operational & Infrastructure Services
+
+                              * Banking & Financial Services
+
+                              * Tax & Accounting Services
+
+                              * Legal & Compliance Services
+
+3.6 Call to Action (CTA) Section
+                                 * Text: Ready to Expand into the US?
+
+                                 * Button: “Partner with Us” → leads to contact form.
+
+3.7 Footer
+                                    * Company logo and tagline.
+
+                                    * Quick Links (About, Services, Country Support, Contact).
+
+                                    * Social Media links (LinkedIn, Twitter, etc.).
+
+                                    * Copyright.
+
+________________
+
+
+4. Functional Requirements
+                                       1. Responsive Design: Page should work seamlessly on desktop, tablet, and mobile.
+
+                                       2. Video Integration: Embed a video on the right side of the banner; autoplay muted with user controls.
+
+                                       3. Navigation: Smooth scroll to sections on click.
+
+                                       4. CTA Buttons: Linked to a contact form (either modal popup or separate page).
+
+                                       5. Interactive Country Section: Tabbed or card-based design to show country details dynamically.
+
+                                       6. Accessibility: All text readable, proper contrast, alt text for images.
+
+                                       7. SEO Ready: Metadata, structured headings (H1, H2, H3), and optimized load speed.
+
+________________
+
+
+5. Non-Functional Requirements
+                                          * Performance: Homepage should load in under 3 seconds.
+
+                                          * Security: HTTPS enabled, safe video embedding.
+
+                                          * Scalability: Country and services sections should allow easy addition of new entries in the future.
+
+________________
+
+
+6. Success Criteria
+                                             * Visitors quickly understand what the agency offers.
+
+                                             * Clear navigation to country and service-specific details.
+
+                                             * High visibility of CTA encouraging user engagement.
+
+________________
+
+
+Do you want me to also sketch a wireframe layout (visual structure) for this FRD, so you can hand it off directly to design/development?
