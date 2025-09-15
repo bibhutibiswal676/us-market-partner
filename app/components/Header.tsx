@@ -130,28 +130,28 @@ export default function Header() {
       color: 'bg-lime-50 text-lime-700',
     },
   ];
+const countries = [
+  { label: 'India', href: '/india', icon: 'https://flagcdn.com/w40/in.png' },
+  { label: 'Japan', href: '/japan', icon: 'https://flagcdn.com/w40/jp.png' },
+  { label: 'Canada', href: '/canada', icon: 'https://flagcdn.com/w40/ca.png' },
+  { label: 'Germany', href: '/germany', icon: 'https://flagcdn.com/w40/de.png' },
+  { label: 'UK & Europe', href: '/united-kingdom-europe', icon: 'https://flagcdn.com/w40/gb.png' },
+  { label: 'UAE', href: '/uae', icon: 'https://flagcdn.com/w40/ae.png' },
+  { label: 'Taiwan', href: '/taiwan', icon: 'https://flagcdn.com/w40/tw.png' },
+  { label: 'South Korea', href: '/south-korea', icon: 'https://flagcdn.com/w40/kr.png' },
+  { label: 'Mexico', href: '/mexico', icon: 'https://flagcdn.com/w40/mx.png' },
+  { label: 'Brazil', href: '/brazil', icon: 'https://flagcdn.com/w40/br.png' },
+  { label: 'Israel', href: '/israel', icon: 'https://flagcdn.com/w40/il.png' },
+  { label: 'Singapore', href: '/singapore', icon: 'https://flagcdn.com/w40/sg.png' },
+];
 
-  const countries = [
-    { label: 'India', href: '/india', icon: 'flag-india' },
-    { label: 'Japan', href: '/japan', icon: 'flag-japan' },
-    { label: 'Canada', href: '/canada', icon: 'flag-canada' },
-    { label: 'Germany', href: '/germany', icon: 'flag-germany' },
-    { label: 'UK & Europe', href: '/united-kingdom-europe', icon: 'flag-uk' },
-    { label: 'UAE', href: '/uae', icon: 'flag-uae' },
-    { label: 'Taiwan', href: '/taiwan', icon: 'flag-taiwan' },
-    { label: 'South Korea', href: '/south-korea', icon: 'flag-south-korea' },
-    { label: 'Mexico', href: '/mexico', icon: 'flag-mexico' },
-    { label: 'Brazil', href: '/brazil', icon: 'flag-brazil' },
-    { label: 'Israel', href: '/israel', icon: 'flag-israel' },
-    { label: 'Singapore', href: '/singapore', icon: 'flag-singapore' },
-  ];
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <div className="relative w-36 h-10 md:w-44 md:h-12">
             <Image
-              src="/US-market-partner-logo.webp"
+              src="/us-market-logo.png"
               alt="US Market Partner Logo"
               fill
               style={{ objectFit: 'contain' }}
@@ -317,27 +317,32 @@ export default function Header() {
               onMouseEnter={() => openMenu('countries')}
               onMouseLeave={() => scheduleClose('countries')}
             >
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-                {countries.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href as any}
-                      className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary/30 motion-safe:transition-colors"
-                      role="menuitem"
-                    >
-                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-black/5 bg-gray-50 text-gray-700 motion-safe:transition-colors">
-                        <Icon
-                          name={(item.icon as any) ?? 'globe'}
-                          className="text-[16px] leading-none"
-                        />
-                      </span>
-                      <span className="text-sm font-medium text-gray-900">
-                        {item.label}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+           
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+            {countries.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href as any}
+                  className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary/30 motion-safe:transition-colors"
+                  role="menuitem"
+                >
+               <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-black/5 bg-gray-50 text-gray-700 motion-safe:transition-colors">
+                 
+                  <Image
+                    src={item.icon as string} 
+                    alt={item.label}
+                    width={24} 
+                    height={24} 
+                    className="rounded-full"
+                  />
+              </span>
+              <span className="text-sm font-medium text-gray-900">
+                {item.label}
+              </span>
+            </Link>
+         </li>
+         ))}  
+         </ul>
             </div>
           </div>
           <Link href={'/blog' as any}>Blog</Link>

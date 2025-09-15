@@ -35,7 +35,7 @@
       "name": "United Kingdom",
       "description": "The UK and Europe are key sources of foreign direct investment into the United States, particularly in finance, fintech, and advanced manufacturing. London-based banks and asset management firms maintain strong operations in New York and Chicago. European AI and SaaS startups use tech hubs like Austin, San Francisco, and Boston to scale globally. Manufacturing affiliates are setting up US production plants to meet local demand and reduce supply chain risks. The UK’s legal system and regulatory alignment make US expansion easier for businesses. Brexit has encouraged many UK firms to diversify into the US market to maintain global competitiveness. European cleantech companies are working with US cities to implement sustainable solutions. This strong partnership fuels job creation, investment, and technological growth.",
       "sectors": [
-        { "slug": "finance-and-banking", "name": "●Finance & Banking" },
+        { "slug": "finance-and-banking", "name": "Finance & Banking" },
         { "slug": "high-tech-and-ai", "name": "High-Tech & AI" },
         { "slug": "advance-manufacturing", "name": "Advanced Manufacturing" }
       ]
@@ -54,7 +54,7 @@
           "name": "Energy Infrastructure"
 
         },
-        { "slug": "e-commerce-and-logistics", "name": "●E-commerce & Logistics" }
+        { "slug": "e-commerce-and-logistics", "name": "E-commerce & Logistics" }
       ]
     },
     {
@@ -226,9 +226,5 @@
       "shortDescription": "Cloud setup, cybersecurity, integrations, and 24/7 technical support.",
       "icon": "laptop"
     }
-  ],
-  "ctaSection": {
-    "title": "Ready to Expand into the US?",
-    "buttonText": "Partner with Us"
-  }
+  ]
 }

@@ -93,7 +93,7 @@ export default function CountryCards({ countries }: { countries: Country[] }) {
                       }}
                     >
                       <Link
-                        href={`/country/${c.slug}/${s.slug}`}
+                         href={`/country/${c.slug}/${s.slug}`}
                         className="underline hover:text-primary motion-safe:transition-colors"
                       >
                         {s.name}
