@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Button from './Button';
 import Icon from './Icon';
+import Image from 'next/image';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -147,13 +148,21 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="font-semibold text-lg">
-          US Market Partner
+        <Link href="/" className="flex items-center">
+          <div className="relative w-36 h-10 md:w-44 md:h-12">
+            <Image
+              src="/US-market-partner-logo.webp"
+              alt="US Market Partner Logo"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6" aria-label="Main">
           <Link href="/" className="hover:text-primary">
             Home
           </Link>
+              <Link href={'/about' as any}>About Us</Link>
           {/* Services dropdown */}
           <div
             className="relative group"
@@ -331,8 +340,6 @@ export default function Header() {
               </ul>
             </div>
           </div>
-
-          <Link href={'/about' as any}>About Us</Link>
           <Link href={'/blog' as any}>Blog</Link>
           <Button href="/contact" size="md">
             Expand Now
