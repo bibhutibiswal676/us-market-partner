@@ -224,10 +224,18 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-600">
-          © {new Date().getFullYear()} USMarketPartner.com | All Rights
-          Reserved
+      {/* Bottom bar */}
+       <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-600 text-center">
+          © {new Date().getFullYear()}{' '}
+          <a
+           href="https://usmarketpartner.com"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="font-medium text-gray-700 hover:text-primary transition-colors"
+          >
+            USMarketPartner.com
+          </a>{' '}
+          | All Rights Reserved
         </div>
       </div>
     </footer>

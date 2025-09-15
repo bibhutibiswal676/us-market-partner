@@ -1,6 +1,5 @@
 'use client';
 import type { Country } from '@/types/content';
-import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 export default function CountryList({ countries }: { countries: Country[] }) {
@@ -136,12 +135,7 @@ export default function CountryList({ countries }: { countries: Country[] }) {
                             animationDelay: `${Math.min(j * 50, 300)}ms`,
                           }}
                         >
-                          <Link
-                            href={`/country/${c.slug}/${s.slug}`}
-                            className="underline hover:text-primary motion-safe:transition-colors"
-                          >
-                            {s.name}
-                          </Link>
+                          <span className="text-gray-800">{s.name}</span>
                         </li>
                       ))}
                     </ul>
@@ -177,12 +171,7 @@ export default function CountryList({ countries }: { countries: Country[] }) {
                   className="motion-safe:animate-fade-up"
                   style={{ animationDelay: `${Math.min(i * 60, 360)}ms` }}
                 >
-                  <Link
-                    href={`/country/${activeCountry.slug}/${s.slug}`}
-                    className="underline hover:text-primary motion-safe:transition-colors"
-                  >
-                    {s.name}
-                  </Link>
+                  <span className="text-gray-800">{s.name}</span>
                 </li>
               ))}
             </ul>

@@ -5,6 +5,7 @@ export default function Hero({
   title,
   subtitle,
   ctaText,
+  videoSrc,
   poster,
 }: {
   title: string;
@@ -35,7 +36,7 @@ export default function Hero({
           </Button>
         </div>
       </div>
-      <VideoPlayer src="https://d3euc6irt3la1j.cloudfront.net/us-market-partner.mp4" poster={poster} />
+      <VideoPlayer src={videoSrc} poster={poster} />
     </section>
   );
 }
