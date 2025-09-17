@@ -3,7 +3,7 @@ import React from 'react';
 import Button from './Button';
 
 export default function FloatingBookCall({
-  href = '/contact',
+  href = 'https://calendly.com/l4rgusllc/scheduling',
   label = 'Book a call',
 }: {
   href?: string;
