@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   FaLinkedinIn,
   FaYoutube,
@@ -15,7 +16,17 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand + tagline + socials */}
           <div>
-            <div className="font-semibold text-lg">US Market Partner</div>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/us-market-logo.png"
+                alt="US Market Partner logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+                priority
+              />
+              <div className="font-semibold text-lg">US Market Partner</div>
+            </div>
             <p className="text-sm text-gray-600 mt-2 max-w-sm">
               Your trusted US market partner — helping 20+ brands successfully
               establish themselves in the US over the last 5 years.
