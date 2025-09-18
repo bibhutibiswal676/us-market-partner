@@ -4,6 +4,7 @@ import {
   FaYoutube,
   FaFacebookF,
   FaInstagram,
+  FaWhatsapp,
 } from 'react-icons/fa6';
 import { FaXTwitter } from 'react-icons/fa6';
 
@@ -16,7 +17,10 @@ export default function Footer() {
           <div>
             <div className="font-semibold text-lg">US Market Partner</div>
             <p className="text-sm text-gray-600 mt-2 max-w-sm">
-              Your trusted partner for US market expansion.
+              Your trusted US market partner — helping 20+ brands successfully
+              establish themselves in the US over the last 5 years.
+              <br />
+              We&apos;ve driven $1B+ in revenue with an average 15% growth rate.
             </p>
             <div className="mt-4 flex items-center gap-3 text-gray-500">
               <Link
@@ -68,6 +72,16 @@ export default function Footer() {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-gray-200 bg-white text-gray-600 hover:text-[#E4405F] hover:bg-[#E4405F]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E4405F]/30 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:scale-[1.05]"
               >
                 <FaInstagram className="h-5 w-5" aria-hidden="true" />
+              </Link>
+              <Link
+                href={'https://wa.me/13367925111' as any}
+                aria-label="WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-gray-200 bg-white text-gray-600 hover:text-[#25D366] hover:bg-[#25D366]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/30 motion-safe:transition motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:scale-[1.05]"
+              >
+                <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -220,18 +234,28 @@ export default function Footer() {
                   Instagram
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={'https://wa.me/13367925111' as any}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  WhatsApp
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
 
-      {/* Bottom bar */}
-       <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-600 text-center">
+        {/* Bottom bar */}
+        <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-600 text-center">
           © {new Date().getFullYear()}{' '}
           <a
-           href="https://usmarketpartner.com"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="font-medium text-gray-700 hover:text-primary transition-colors"
+            href="https://usmarketpartner.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-gray-700 hover:text-primary transition-colors"
           >
             USMarketPartner.com
           </a>{' '}
