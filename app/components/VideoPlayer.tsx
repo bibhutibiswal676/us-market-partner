@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { FaPlay, FaPause, FaVolumeHigh, FaVolumeXmark } from 'react-icons/fa6';
 
 export default function VideoPlayer({
@@ -11,25 +11,7 @@ export default function VideoPlayer({
 }) {
   const ref = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
-  const [canAutoplay, setCanAutoplay] = useState(true);
   const [muted, setMuted] = useState(true);
-
-  useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    const tryPlay = async () => {
-      try {
-        await v.play();
-        setPlaying(true);
-      } catch {
-        setCanAutoplay(false);
-      }
-    };
-    // attempt autoplay only if muted
-    v.muted = true;
-    setMuted(true);
-    tryPlay();
-  }, []);
 
   const toggle = async () => {
     const v = ref.current;
@@ -60,25 +42,23 @@ export default function VideoPlayer({
           muted
           playsInline
           loop
-          preload="metadata"
+          preload="none"
           aria-label="Intro video about US Market Partner"
           className="h-full w-full object-cover"
         />
-        {!canAutoplay && (
-          <button
-            onClick={toggle}
-            className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow ring-1 ring-gray-300/60 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-            aria-pressed={playing}
-            aria-label={playing ? 'Pause video' : 'Play video'}
-            title={playing ? 'Pause' : 'Play'}
-          >
-            {playing ? (
-              <FaPause className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <FaPlay className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
-        )}
+        <button
+          onClick={toggle}
+          className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow ring-1 ring-gray-300/60 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          aria-pressed={playing}
+          aria-label={playing ? 'Pause video' : 'Play video'}
+          title={playing ? 'Pause' : 'Play'}
+        >
+          {playing ? (
+            <FaPause className="h-6 w-6" aria-hidden="true" />
+          ) : (
+            <FaPlay className="h-6 w-6" aria-hidden="true" />
+          )}
+        </button>
       </div>
       <div className="mt-3 flex items-center gap-2">
         <button

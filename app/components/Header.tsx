@@ -41,7 +41,7 @@ export default function Header() {
           <Link href="/" className="hover:text-primary">
             Home
           </Link>
-              <Link href={'/about' as any}>About Us</Link>
+          <Link href={'/about' as any}>About Us</Link>
           {/* Services dropdown */}
           <div
             className="relative group"
@@ -196,36 +196,35 @@ export default function Header() {
               onMouseEnter={() => openMenu('countries')}
               onMouseLeave={() => scheduleClose('countries')}
             >
-           
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-            {countries.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href as any}
-                  className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary/30 motion-safe:transition-colors"
-                  role="menuitem"
-                >
-               <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-black/5 bg-gray-50 text-gray-700 motion-safe:transition-colors">
-                 
-                  <Image
-                    src={item.icon as string} 
-                    alt={item.label}
-                    width={24} 
-                    height={24} 
-                    className="rounded-full"
-                  />
-              </span>
-              <span className="text-sm font-medium text-gray-900">
-                {item.label}
-              </span>
-            </Link>
-         </li>
-         ))}  
-         </ul>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                {countries.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href as any}
+                      className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-primary/30 motion-safe:transition-colors"
+                      role="menuitem"
+                    >
+                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-black/5 bg-gray-50 text-gray-700 motion-safe:transition-colors">
+                        <Image
+                          src={item.icon as string}
+                          alt={item.label}
+                          width={24}
+                          height={24}
+                          className="rounded-full"
+                          unoptimized
+                        />
+                      </span>
+                      <span className="text-sm font-medium text-gray-900">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
           <Link href={'/blog' as any}>Blog</Link>
-          <Button href="/contact" size="md">
+          <Button href="https://calendly.com/l4rgusllc/scheduling" size="md">
             Expand Now
           </Button>
         </nav>
@@ -321,7 +320,11 @@ export default function Header() {
             <Link href={'/blog' as any} onClick={() => setOpen(false)}>
               Blog
             </Link>
-            <Button href="/contact" size="md" onClick={() => setOpen(false)}>
+            <Button
+              href="https://calendly.com/l4rgusllc/scheduling"
+              size="md"
+              onClick={() => setOpen(false)}
+            >
               Expand Now
             </Button>
           </div>
