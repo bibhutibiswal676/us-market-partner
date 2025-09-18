@@ -1,5 +1,13 @@
-import VideoPlayer from './VideoPlayer';
+import dynamic from 'next/dynamic';
 import Button from './Button';
+const VideoPlayer = dynamic(() => import('./VideoPlayer'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full">
+      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-200 bg-gray-100" />
+    </div>
+  ),
+});
 
 export default function Hero({
   title,

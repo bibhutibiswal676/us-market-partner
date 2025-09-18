@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 
 type Props = {
   text: string;
@@ -70,17 +71,21 @@ export default function IntroCard({
 }: Props) {
   return (
     <section className="relative container mx-auto px-4 py-12 min-h-[360px] md:min-h-[520px] lg:min-h-[60vh]">
-      {/* Background image: show the whole image (contain), centered, non-repeating */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          backgroundImage: 'url(/bg/ny-skyline.jpg)',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center bottom',
-          backgroundSize: 'cover',
-        }}
-      />
+      {/* Background image: optimized with Next.js Image component */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <picture>
+          <Image
+            src="/bg/ny-skyline.jpg"
+            alt=""
+            fill
+            priority
+            fetchPriority="high"
+            className="object-cover object-center"
+            sizes="100vw"
+            quality={85}
+          />
+        </picture>
+      </div>
       {/* Readability scrim behind content */}
       <div
         aria-hidden

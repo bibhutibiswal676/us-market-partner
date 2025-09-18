@@ -211,6 +211,7 @@ export default function Header() {
                           width={24}
                           height={24}
                           className="rounded-full"
+                          unoptimized
                         />
                       </span>
                       <span className="text-sm font-medium text-gray-900">
