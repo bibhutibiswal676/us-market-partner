@@ -9,9 +9,12 @@ export default function CountryCards({ countries }: { countries: Country[] }) {
   return (
     <section
       id="countries"
+      aria-labelledby="countries-cards-heading"
       className="container mx-auto px-4 py-12 motion-safe:animate-fade-up"
     >
-      <h2 className="text-2xl font-semibold">Country Support</h2>
+      <h2 id="countries-cards-heading" className="text-2xl font-semibold">
+        Country Support
+      </h2>
       <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {countries.map((c) => {
           const isOpen = expanded === c.slug;
@@ -31,11 +34,15 @@ export default function CountryCards({ countries }: { countries: Country[] }) {
                 aria-expanded={isOpen}
                 aria-controls={contentId}
                 id={`${contentId}-button`}
+                aria-describedby={`${contentId}-desc`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h3 className="font-medium text-lg">{c.name}</h3>
-                    <p className="text-gray-600 text-sm mt-1">
+                    <p
+                      id={`${contentId}-desc`}
+                      className="text-gray-600 text-sm mt-1"
+                    >
                       {c.description}
                     </p>
                   </div>
@@ -66,6 +73,17 @@ export default function CountryCards({ countries }: { countries: Country[] }) {
                 id={contentId}
                 role="region"
                 aria-labelledby={`${contentId}-button`}
+                tabIndex={-1}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    e.stopPropagation();
+                    setExpanded(null);
+                    const trigger = document.getElementById(
+                      `${contentId}-button`
+                    );
+                    if (trigger) (trigger as HTMLButtonElement).focus();
+                  }
+                }}
                 className={`absolute inset-0 p-5 bg-white/95 backdrop-blur-sm motion-safe:transition-all motion-safe:duration-300 ${
                   isOpen
                     ? 'opacity-100 translate-y-0 pointer-events-auto'
@@ -93,7 +111,7 @@ export default function CountryCards({ countries }: { countries: Country[] }) {
                       }}
                     >
                       <Link
-                         href={`/country/${c.slug}/${s.slug}`}
+                        href={`/country/${c.slug}/${s.slug}`}
                         className="underline hover:text-primary motion-safe:transition-colors"
                       >
                         {s.name}
