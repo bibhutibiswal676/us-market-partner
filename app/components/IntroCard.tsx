@@ -76,7 +76,8 @@ export default function IntroCard({
         <picture>
           <Image
             src="/bg/ny-skyline.jpg"
-            alt=""
+            alt="Expand Your Business"
+            title="Expand Your Business"
             fill
             priority
             fetchPriority="high"

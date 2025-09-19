@@ -52,6 +52,7 @@ export default function LogoCloud({
                     <img
                       src={l.src}
                       alt={l.alt}
+                      title={l.alt}
                       className="h-10 object-contain"
                     />
                   </a>
@@ -59,6 +60,7 @@ export default function LogoCloud({
                   <img
                     src={l.src}
                     alt={l.alt}
+                    title={l.alt}
                     className="h-10 object-contain"
                   />
                 )}

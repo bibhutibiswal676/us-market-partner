@@ -32,6 +32,7 @@ export default function Header() {
             <Image
               src="/us-market-logo.png"
               alt="US Market Partner Logo"
+              title="US Market Partner Logo"
               fill
               style={{ objectFit: 'contain' }}
             />
@@ -208,6 +209,7 @@ export default function Header() {
                         <Image
                           src={item.icon as string}
                           alt={item.label}
+                          title={item.label}
                           width={24}
                           height={24}
                           className="rounded-full"

@@ -28,7 +28,14 @@ export default function Testimonials({
           >
             <p className="text-gray-800">“{t.quote}”</p>
             <div className="mt-4 flex items-center gap-3">
-              {t.logoSrc && <img src={t.logoSrc} alt="" className="h-6" />}
+              {t.logoSrc && (
+                <img
+                  src={t.logoSrc}
+                  alt={`${t.author} company logo`}
+                  title={`${t.author} company logo`}
+                  className="h-6"
+                />
+              )}
               <div>
                 <div className="font-medium">{t.author}</div>
                 {t.role && (

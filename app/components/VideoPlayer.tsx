@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FaPlay, FaPause, FaVolumeHigh, FaVolumeXmark } from 'react-icons/fa6';
 
 export default function VideoPlayer({
@@ -12,6 +12,25 @@ export default function VideoPlayer({
   const ref = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (video) {
+      // Attempt to autoplay when component mounts
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setPlaying(true);
+          })
+          .catch((error) => {
+            // Autoplay failed, likely due to browser policy
+            console.log('Autoplay prevented:', error);
+            setPlaying(false);
+          });
+      }
+    }
+  }, []);
 
   const toggle = async () => {
     const v = ref.current;
@@ -42,8 +61,10 @@ export default function VideoPlayer({
           muted
           playsInline
           loop
-          preload="none"
+          autoPlay
+          preload="metadata"
           aria-label="Intro video about US Market Partner"
+          title="Intro video about US Market Partner"
           className="h-full w-full object-cover"
         />
         <button

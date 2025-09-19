@@ -20,7 +20,14 @@ export default function CaseStudyCard({
   return (
     <article className="rounded-lg border border-gray-200 bg-white p-5 h-full flex flex-col">
       <div className="flex items-center gap-3">
-        {logoSrc && <img src={logoSrc} alt="" className="h-8" />}
+        {logoSrc && (
+          <img
+            src={logoSrc}
+            alt={`${title} company logo`}
+            title={`${title} company logo`}
+            className="h-8"
+          />
+        )}
         <h3 className="text-lg font-semibold">{title}</h3>
       </div>
       <p className="mt-3 text-gray-700 flex-1">{summary}</p>

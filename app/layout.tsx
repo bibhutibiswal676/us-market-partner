@@ -3,10 +3,9 @@ import React from 'react';
 import './styles/globals.css';
 
 export const metadata: Metadata = {
-  title:
-    'US Market Partner | Expand Your Business to the USA with Local Support',
+  title: 'US Market Partner | Expand Business in the USA with Support',
   description:
-    'We help global companies expand into the U.S. with trusted local partnership, LLC & C-Corp setup, compliance, and sales growth strategies. Partner with a U.S. citizen to succeed in the American market.',
+    'Expand your business into the U.S. with trusted local partners. We support LLC & C-Corp setup, compliance, and sales growth strategies for global companies.',
   metadataBase: new URL('https://www.usmarketpartner.com'),
   openGraph: {
     type: 'website',
